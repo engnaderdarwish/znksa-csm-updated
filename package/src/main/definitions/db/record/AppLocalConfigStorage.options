@@ -1,5 +1,5 @@
 #
-#Sun Aug 23 15:21:26 UTC 2026
+#Mon Nov 09 12:51:23 UTC 2026
 IgnoreRuleExecution=false
 DuplicateDataActionType=THROW_ERROR
 Name=AppLocalConfigStorage

@@ -1,12 +1,47 @@
 begin container
    name           : com.cmak.integrations.znksa-csm-sms
    type           : 2
-   num-references : 19
-   timestamp      : 1787497707
+   num-references : 21
+   timestamp      : 1794228226
    owner          : com.cmak.integrations
    last-changed   : ARSERVER
    export-version : 12
    object-prop    : 5\90019\2\10\90016\4\1\1\90021\4\35\com.cmak.integrations.znksa-csm-sms\90015\2\4\90002\4\35\com.cmak.integrations.znksa-csm-sms\
+reference {
+   type           : 32839
+   datatype       : 1
+   value          : 2\2\
+}
+reference {
+   type           : 32839
+   datatype       : 1
+   value          : 2\2\
+}
+reference {
+   type           : 32847
+   datatype       : 1
+   value          : 0\
+}
+reference {
+   type           : 14
+   datatype       : 1
+   value          : 4\53\com.cmak.integrations.znksa-csm-sms:SMS Configuration\
+}
+reference {
+   type           : 32839
+   datatype       : 1
+   value          : 2\2\
+}
+reference {
+   type           : 32847
+   datatype       : 1
+   value          : 0\
+}
+reference {
+   type           : 14
+   datatype       : 1
+   value          : 4\53\com.cmak.integrations.znksa-csm-sms:LBS Configuration\
+}
 reference {
    type           : 32839
    datatype       : 1
@@ -33,14 +68,9 @@ reference {
    value          : 2\2\
 }
 reference {
-   type           : 32847
+   type           : 32839
    datatype       : 1
-   value          : 0\
-}
-reference {
-   type           : 14
-   datatype       : 1
-   value          : 4\53\com.cmak.integrations.znksa-csm-sms:SMS Configuration\
+   value          : 2\2\
 }
 reference {
    type           : 32839
@@ -48,14 +78,9 @@ reference {
    value          : 2\2\
 }
 reference {
-   type           : 32846
+   type           : 32839
    datatype       : 1
-   value          : 0\
-}
-reference {
-   type           : 13
-   datatype       : 1
-   value          : 4\51\com.cmak.integrations.znksa-csm-sms:Test Connection\
+   value          : 2\2\
 }
 reference {
    type           : 32839
@@ -63,29 +88,14 @@ reference {
    value          : 2\2\
 }
 reference {
-   type           : 32847
-   datatype       : 1
-   value          : 0\
-}
-reference {
-   type           : 14
-   datatype       : 1
-   value          : 4\53\com.cmak.integrations.znksa-csm-sms:LBS Configuration\
-}
-reference {
    type           : 32839
    datatype       : 1
    value          : 2\2\
 }
 reference {
-   type           : 32846
+   type           : 32839
    datatype       : 1
-   value          : 0\
-}
-reference {
-   type           : 13
-   datatype       : 1
-   value          : 4\55\com.cmak.integrations.znksa-csm-sms:Test LBS Connection\
+   value          : 2\2\
 }
 reference {
    type           : 32839

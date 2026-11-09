@@ -83,6 +83,7 @@ public final class Constants {
 
         /** Sender names allowed to override the configured originator. */
         public static final String SENDER_ZAIN = "Zain";
+        public static final String SENDER_Yaqoot = "Yaqoot";
         public static final String SENDER_1555 = "1555";
 
         /** The old JAR printed these to stdout for the filter to read back. */

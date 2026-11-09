@@ -1,0 +1,25 @@
+@"
+# Build output
+target/
+**/target/
+
+# Logs (can contain credentials and tokens)
+*.log
+export-debug.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# UI build leftovers
+node_modules/
+**/src/main/webapp/
+
+# OS
+Thumbs.db
+.DS_Store
+"@ | Out-File -Encoding utf8 .gitignore

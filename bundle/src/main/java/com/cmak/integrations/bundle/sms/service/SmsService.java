@@ -1,6 +1,6 @@
 package com.cmak.integrations.bundle.sms.service;
 
-import javax.validation.constraints.NotBlank;
+
 
 import com.bmc.arsys.rx.services.action.domain.Action;
 import com.bmc.arsys.rx.services.action.domain.ActionParameter;
@@ -17,6 +17,7 @@ import com.cmak.integrations.bundle.sms.domain.SmsLanguage;
 import com.cmak.integrations.bundle.sms.domain.SmsSendResult;
 import com.cmak.integrations.bundle.sms.client.PmmSoapClient;
 import com.cmak.integrations.bundle.sms.client.SoapCallResult;
+import jakarta.validation.constraints.NotBlank;
 
 
 /**
@@ -182,7 +183,8 @@ public class SmsService implements Service {
     private String resolveOriginator(String senderName, String configuredOriginator) {
         if (senderName != null && !senderName.trim().isEmpty()
                 && (Constants.SmsConstants.SENDER_ZAIN.equalsIgnoreCase(senderName.trim())
-                || Constants.SmsConstants.SENDER_1555.equalsIgnoreCase(senderName.trim()))) {
+                || Constants.SmsConstants.SENDER_1555.equalsIgnoreCase(senderName.trim())||
+                Constants.SmsConstants.SENDER_Yaqoot.equalsIgnoreCase(senderName.trim()))) {
             ServiceLocator.getLogger().info("Originator overridden by senderName: "+senderName.trim());
             return senderName.trim();
         }

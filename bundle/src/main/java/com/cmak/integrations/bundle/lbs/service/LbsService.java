@@ -1,6 +1,6 @@
 package com.cmak.integrations.bundle.lbs.service;
 
-import javax.validation.constraints.NotBlank;
+
 
 import com.bmc.arsys.rx.application.common.ServiceLocator;
 import com.bmc.arsys.rx.services.action.domain.Action;
@@ -12,6 +12,7 @@ import com.cmak.integrations.bundle.lbs.config.LbsConfig;
 import com.cmak.integrations.bundle.lbs.config.LbsConfigService;
 import com.cmak.integrations.bundle.lbs.domain.LbsLocationResult;
 import com.cmak.integrations.bundle.lbs.client.MlpClient;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  * Innovation Studio replacement for lbs.LBS.main(String[]).

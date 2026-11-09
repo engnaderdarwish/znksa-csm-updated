@@ -2,9 +2,9 @@ begin record definition
    name           : com.cmak.integrations.znksa-csm-sms:LBS Configuration
    definition     : {
    definition     :   "resourceType" : "com.bmc.arsys.rx.services.record.domain.RegularRecordDefinition",
-   definition     :   "version" : null,
-   definition     :   "lastUpdateTime" : 1785433290000,
-   definition     :   "lastChangedBy" : "intg_team",
+   definition     :   "version" : "26.3.01-SNAPSHOT",
+   definition     :   "lastUpdateTime" : 1789895566000,
+   definition     :   "lastChangedBy" : "ARSERVER",
    definition     :   "owner" : "intg_team",
    definition     :   "name" : "com.cmak.integrations.znksa-csm-sms:LBS Configuration",
    definition     :   "tags" : null,
@@ -15,8 +15,8 @@ begin record definition
    definition     :   "guid" : "IDGEA5QPJF9WVAT9AAXLT9AAXLAL5Y",
    definition     :   "fieldDefinitions" : [ {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Display ID",
    definition     :     "tags" : null,
@@ -90,8 +90,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : false
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Created By",
    definition     :     "tags" : null,
@@ -151,8 +151,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : true
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.DateTimeFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Created Date",
    definition     :     "tags" : null,
@@ -205,8 +205,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : false
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Assignee",
    definition     :     "tags" : null,
@@ -252,8 +252,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : false
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Modified By",
    definition     :     "tags" : null,
@@ -299,8 +299,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : false
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.DateTimeFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Modified Date",
    definition     :     "tags" : null,
@@ -339,8 +339,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : false
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.SelectionFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Status",
    definition     :     "tags" : null,
@@ -408,8 +408,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : false
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Description",
    definition     :     "tags" : null,
@@ -469,8 +469,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : true
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.SelectionFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Notifier Listening",
    definition     :     "tags" : null,
@@ -532,8 +532,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : false
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895565000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "ID",
    definition     :     "tags" : null,
@@ -579,8 +579,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : true
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895566000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "LBS URL",
    definition     :     "tags" : null,
@@ -626,8 +626,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : true
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895566000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "LBS Password",
    definition     :     "tags" : null,
@@ -673,8 +673,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : true
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895566000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Client ID",
    definition     :     "tags" : null,
@@ -720,8 +720,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : true
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.IntegerFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895566000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Default Max Location Age",
    definition     :     "tags" : null,
@@ -762,8 +762,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : true
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.IntegerFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895566000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Connect Timeout",
    definition     :     "tags" : null,
@@ -804,8 +804,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : true
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.IntegerFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895566000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Read Timeout",
    definition     :     "tags" : null,
@@ -846,8 +846,8 @@ begin record definition
    definition     :     "anyUserAllowedToSubmit" : true
    definition     :   }, {
    definition     :     "resourceType" : "com.bmc.arsys.rx.standardlib.record.BooleanFieldDefinition",
-   definition     :     "lastUpdateTime" : 1785433290000,
-   definition     :     "lastChangedBy" : "intg_team",
+   definition     :     "lastUpdateTime" : 1789895566000,
+   definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "intg_team",
    definition     :     "name" : "Enabled",
    definition     :     "tags" : null,
@@ -929,7 +929,7 @@ begin record definition
    definition     :   "rlsAlgorithm" : 0,
    definition     :   "enableLocalization" : false,
    definition     :   "indexDefinitions" : [ {
-   definition     :     "indexName" : "I6534_1_379_T6534",
+   definition     :     "indexName" : "I6676_1_379_T6676",
    definition     :     "unique" : true,
    definition     :     "indexFieldIds" : [ 379 ],
    definition     :     "ignoreBlankValues" : false

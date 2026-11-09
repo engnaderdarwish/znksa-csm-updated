@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-    <artifactId>znksa-csm-sms-all</artifactId>
-    <groupId>com.cmak.integrations</groupId>
-    <version>26.2.00-SNAPSHOT</version>
-  </parent>
+        <artifactId>znksa-csm-sms-all</artifactId>
+        <groupId>com.cmak.integrations</groupId>
+        <version>26.3.01-SNAPSHOT</version>
+    </parent>
 
     <groupId>com.cmak.integrations</groupId>
     <artifactId>znksa-csm-sms</artifactId>
-    <version>26.2.00-SNAPSHOT</version>
+    <version>26.3.01-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <name>znksa-csm-sms</name>
@@ -44,17 +44,14 @@
 
         <!-- Bundle Specific Dependencies -->
         <dependency>
-            <groupId>org.eclipse</groupId>
-            <artifactId>osgi</artifactId>
+            <groupId>org.eclipse.platform</groupId>
+            <artifactId>org.eclipse.osgi</artifactId>
             <version>${equinox.framework.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <version>${javax.ws.rs.version}</version>
-            <scope>provided</scope>
-        </dependency>
+        <!-- Dropped in 26.3.01: javax.ws.rs-api (JAX-RS 2.x). JAX-RS 3.1 comes via Jersey 3.x. -->
+
+
 
         <!-- Reference App Deployment Dependencies -->
         <dependency>
@@ -79,8 +76,8 @@
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
             <version>${jersey.version}</version>
-             <scope>provided</scope>
-        </dependency> 
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -96,13 +93,14 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
+            <version>${jackson-annotations.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-jsonSchema</artifactId>
-            <version>${jackson-module-jsonSchema.version}</version>
+            <artifactId>jackson-module-jsonSchema-jakarta</artifactId>
+            <version>${jackson-module-jsonSchema-jakarta.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -115,23 +113,24 @@
         </dependency>
         <!-- Needed in support of @RxTransactional -->
         <dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.spring-aspects</artifactId>
-			<version>${servicemix-spring.version}</version>
+            <groupId>org.apache.servicemix.bundles</groupId>
+            <artifactId>org.apache.servicemix.bundles.spring-aspects</artifactId>
+            <version>${servicemix-spring.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.spring-tx</artifactId>
-			<version>${servicemix-spring.version}</version>
+            <groupId>org.apache.servicemix.bundles</groupId>
+            <artifactId>org.apache.servicemix.bundles.spring-tx</artifactId>
+            <version>${servicemix-spring.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <!--  For validating action parameters and custom fields -->
+
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>${javax.validation.api.version}</version>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${jakarta.validation-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -153,6 +152,13 @@
             <artifactId>joda-time</artifactId>
             <version>${joda-time.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.bmc.arsys</groupId>
+            <artifactId>arAPI</artifactId>
+            <version>91.9</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -274,7 +280,7 @@
                                     <includes>
                                         <include>*${project.artifactId}*</include>
                                         <include>*config_public-path*</include>
-				    </includes>
+                                    </includes>
                                 </resource>
                             </resources>
                         </configuration>
@@ -321,7 +327,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
-                <version>1.7</version>
+                <version>${aspectj-maven-plugin.version}</version>
                 <configuration>
                     <showWeaveInfo>false</showWeaveInfo>
                     <source>${aspectj-complianceLevel.version}</source>
@@ -375,16 +381,17 @@
                         <Bundle-Activator>com.cmak.integrations.bundle.MyApplication</Bundle-Activator>
                         <Bundle-Display-Version>${rx-sdk.bundleDisplayVersion}</Bundle-Display-Version>
                         <Import-Package>com.bmc.arsys*;version=!,
-                        org.hibernate.validator.constraints*;version=!,
-                        org.glassfish.jersey*;version=!,
-                        javax.validation*;version=!,
-                        org.glassfish*;version=!,
-                        com.fasterxml*;version=!,
-                        javax.annotation*;version=!,
-                        org.aspectj*;version=!,
-                        javax.ws.rs*;version=!,
-                        org.apache.servicemix*;version=!,
-                        *;version=!;resolution:=optional</Import-Package>
+
+
+                            org.hibernate.validator.constraints*;version=!,
+                            org.glassfish.jersey*;version=!,
+                            javax.validation*;version=!,
+                            org.glassfish*;version=!,
+                            com.fasterxml*;version=!,
+                            javax.annotation*;version=!,
+                            org.aspectj*;version=!,
+                            org.apache.servicemix*;version=!,
+                            *;version=!;resolution:=optional</Import-Package>
                         <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
                         <Bundle-Description>${rx-sdk.bundleDescription}</Bundle-Description>
                         <Bundle-Vendor>${rx-sdk.bundleDeveloperId}</Bundle-Vendor>

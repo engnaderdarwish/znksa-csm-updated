@@ -1,8 +1,8 @@
 begin view definition
    name           : com.cmak.integrations.znksa-csm-sms:BMC Modern Shell
    definition     : {
-   definition     :   "version" : null,
-   definition     :   "lastUpdateTime" : 1785145596000,
+   definition     :   "version" : "26.3.01-SNAPSHOT",
+   definition     :   "lastUpdateTime" : 1789895569000,
    definition     :   "lastChangedBy" : "ARSERVER",
    definition     :   "owner" : "ARSERVER",
    definition     :   "name" : "com.cmak.integrations.znksa-csm-sms:BMC Modern Shell",
@@ -17,7 +17,7 @@ begin view definition
    definition     :   "outputParams" : [ ],
    definition     :   "componentDefinitions" : [ {
    definition     :     "resourceType" : "com.bmc.arsys.rx.services.view.domain.ContainerViewComponentDefinition",
-   definition     :     "lastUpdateTime" : 1785145596000,
+   definition     :     "lastUpdateTime" : 1789895569000,
    definition     :     "lastChangedBy" : "ARSERVER",
    definition     :     "owner" : "ARSERVER",
    definition     :     "name" : "IDGEA5QPJF9WVAT8TVFNT8TVFNPV6K",
@@ -41,7 +41,7 @@ begin view definition
    definition     :     "layout" : "{\"componentDefinitionId\":\"IDGEA5QPJF9WVAT8TVFNT8TVFNPV68\",\"columns\":[{\"children\":[{\"componentDefinitionId\":\"IDGEA5QPJF9WVAT8TVFNT8TVFNPV69\"}]}]}",
    definition     :     "componentDefinitions" : [ {
    definition     :       "resourceType" : "com.bmc.arsys.rx.services.view.domain.ViewComponentDefinition",
-   definition     :       "lastUpdateTime" : 1785145596000,
+   definition     :       "lastUpdateTime" : 1789895569000,
    definition     :       "lastChangedBy" : "ARSERVER",
    definition     :       "owner" : "ARSERVER",
    definition     :       "name" : "IDGEA5QPJF9WVAT8TVFNT8TVFNPV69",

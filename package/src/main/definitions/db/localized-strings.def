@@ -1,8 +1,8 @@
 begin localizable string
    name           : LSGEA5QPJF9WVAT8U5ZNT8U5ZN61XJ
-   timestamp      : 1785179004
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 125388fa-34c5-474d-9c49-cce2cdb72b0f
    owner-objects  : 35\0
@@ -12,9 +12,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT8U5ZNT8U5ZN61X3
-   timestamp      : 1785179004
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 131176da-0c2f-44db-bedb-4c599f033cf0
    owner-objects  : 35\0
@@ -24,9 +24,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT8U5ZNT8U5ZN61X1
-   timestamp      : 1785179004
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 1f0ee5b6-4388-4bae-aa0a-70ed06e9cf15
    owner-objects  : 35\0
@@ -36,9 +36,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT9AAXNT9AAXNALKH
-   timestamp      : 1785433290
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 2e91fa2b-7778-4613-96a8-6a6fd39fbcd7
    owner-objects  : 35\0
@@ -48,9 +48,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT8U5ZNT8U5ZN61X0
-   timestamp      : 1785179004
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 2f298283-ca41-4560-ae7a-abb7161f1980
    owner-objects  : 35\0
@@ -60,9 +60,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT8U5ZNT8U5ZN61XI
-   timestamp      : 1785179004
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 407af212-5874-4ee6-9d68-5ecf24cdd2db
    owner-objects  : 35\0
@@ -72,9 +72,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT9AAXNT9AAXNALK0
-   timestamp      : 1785433290
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 6880a983-cb75-498e-aff0-5afa5fcb5289
    owner-objects  : 35\0
@@ -84,9 +84,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT9AAXNT9AAXNALK1
-   timestamp      : 1785433290
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 74a616e9-8747-4a0f-86d2-08ba390218df
    owner-objects  : 35\0
@@ -96,9 +96,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT8U5ZNT8U5ZN61XG
-   timestamp      : 1785179004
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 87b9234b-3b33-4f12-8aa9-f90cbbc8d474
    owner-objects  : 35\0
@@ -108,9 +108,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT9AAXNT9AAXNALKF
-   timestamp      : 1785433290
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 8a4e8fe3-5550-47f1-95d4-e0f5b3cfb39b
    owner-objects  : 35\0
@@ -120,9 +120,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT8U5ZNT8U5ZN61XH
-   timestamp      : 1785179004
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : 9f71ac5e-3281-4a16-8c98-2e2a1ac909e5
    owner-objects  : 35\0
@@ -132,9 +132,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT9AAXNT9AAXNALKJ
-   timestamp      : 1785433290
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : b197ac14-624d-4f5f-bd30-3aae4479fbf2
    owner-objects  : 35\0
@@ -144,9 +144,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT9AAXNT9AAXNALKG
-   timestamp      : 1785433290
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : cf4b82bd-2046-4555-9106-3e0b095fa69e
    owner-objects  : 35\0
@@ -156,9 +156,9 @@ begin localizable string
 end
 begin localizable string
    name           : LSGEA5QPJF9WVAT9AAXNT9AAXNALKI
-   timestamp      : 1785433290
+   timestamp      : 1789895569
    owner          : intg_team
-   last-changed   : intg_team
+   last-changed   : ARSERVER
    bundle         : com.cmak.integrations.znksa-csm-sms
    stringId       : e17711c5-ca94-417d-af33-8d1c58e8477f
    owner-objects  : 35\0

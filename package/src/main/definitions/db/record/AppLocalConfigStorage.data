@@ -31,27 +31,27 @@ begin schema data
    data-mapping   : 001_Application">                    <fieldMapping arFieldId="61001"/>                </element>            </element>        </formMapping>    </el
    data-mapping   : ement></arDocMapping>
    data           : <?xml version="1.0" encoding="utf-8"?><entryList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">    
-   data           : <entryItem>        <f1_Request_ID>000000000001951</f1_Request_ID>        <f2_Submitter>ARSERVER</f2_Submitter>        <f3_Create_Date>2026-07-27T09:46
-   data           : :26+00:00</f3_Create_Date>        <f4_Assigned_To xsi:nil="true"/>        <f5_Last_Modified_By>intg_team</f5_Last_Modified_By>        <f6_Modified_Dat
-   data           : e>2026-08-23T15:10:07+00:00</f6_Modified_Date>        <f7_Status>New</f7_Status>        <f8_Short_Description>fileName</f8_Short_Description>        <
-   data           : f15_Status_History xsi:nil="true"/>        <f16_Notifier_Listening>Not Listening</f16_Notifier_Listening>        <f112_Assignee_Group>'ARSERVER';</f112
-   data           : _Assignee_Group>        <f17__SettingGUID>AGGEA5QPJF9WVAT8TVFQT8TVFQPVPV</f17__SettingGUID>        <f37__Record_ID>AGGEA5QPJF9WVAT8TVFQT8TVFQPVPV</f37_
-   data           : _Record_ID>        <f3200_Component_Name>Logger Configuration</f3200_Component_Name>        <f3204_Setting_Name>fileName</f3204_Setting_Name>        <
-   data           : f3205_Setting_Value>com.cmak.integrations.znksa-csm-sms.log</f3205_Setting_Value>        <f3206_Secure_Data xsi:nil="true"/>        <f3257_ParentCompon
-   data           : entName xsi:nil="true"/>        <f3267_OwnerKeyValue1>AGGEA5QPJF9WVAT8TVFQT8TVFQPVPV</f3267_OwnerKeyValue1>        <f3268_OwnerKeyValue2 xsi:nil="true"
-   data           : />        <f326__OwnerKeyValue3 xsi:nil="true"/>        <f3270_FileName xsi:nil="true"/>        <f3272_FileType xsi:nil="true"/>        <f60005_Share
-   data           : d_Settings_Write>'ARSERVER';</f60005_Shared_Settings_Write>        <f60006_Shared_Settings_Read>'ARSERVER';</f60006_Shared_Settings_Read>        <f60_8
-   data           : __ParentAssigneeGroup/>        <f61001_Application>com.cmak.integrations.znksa-csm-sms</f61001_Application>    </entryItem>    <entryItem>        <f1
-   data           : _Request_ID>000000000001952</f1_Request_ID>        <f2_Submitter>ARSERVER</f2_Submitter>        <f3_Create_Date>2026-07-27T09:46:26+00:00</f3_Create_Da
-   data           : te>        <f4_Assigned_To xsi:nil="true"/>        <f5_Last_Modified_By>intg_team</f5_Last_Modified_By>        <f6_Modified_Date>2026-08-23T15:10:07+0
-   data           : 0:00</f6_Modified_Date>        <f7_Status>New</f7_Status>        <f8_Short_Description>level</f8_Short_Description>        <f15_Status_History xsi:nil
-   data           : ="true"/>        <f16_Notifier_Listening>Not Listening</f16_Notifier_Listening>        <f112_Assignee_Group>'ARSERVER';</f112_Assignee_Group>        <
-   data           : f17__SettingGUID>AGGEA5QPJF9WVAT8TVFQT8TVFQPVQH</f17__SettingGUID>        <f37__Record_ID>AGGEA5QPJF9WVAT8TVFQT8TVFQPVQH</f37__Record_ID>        <f3200
-   data           : _Component_Name>Logger Configuration</f3200_Component_Name>        <f3204_Setting_Name>level</f3204_Setting_Name>        <f3205_Setting_Value>5</f3205_
-   data           : Setting_Value>        <f3206_Secure_Data xsi:nil="true"/>        <f3257_ParentComponentName xsi:nil="true"/>        <f3267_OwnerKeyValue1>AGGEA5QPJF9W
-   data           : VAT8TVFQT8TVFQPVPV</f3267_OwnerKeyValue1>        <f3268_OwnerKeyValue2 xsi:nil="true"/>        <f326__OwnerKeyValue3 xsi:nil="true"/>        <f3270_Fi
-   data           : leName xsi:nil="true"/>        <f3272_FileType xsi:nil="true"/>        <f60005_Shared_Settings_Write>'ARSERVER';</f60005_Shared_Settings_Write>       
-   data           :  <f60006_Shared_Settings_Read>'ARSERVER';</f60006_Shared_Settings_Read>        <f60_8__ParentAssigneeGroup/>        <f61001_Application>com.cmak.integr
-   data           : ations.znksa-csm-sms</f61001_Application>    </entryItem></entryList>
+   data           : <entryItem>        <f1_Request_ID>000000000003306</f1_Request_ID>        <f2_Submitter>ARSERVER</f2_Submitter>        <f3_Create_Date>2026-09-20T09:12
+   data           : :30+00:00</f3_Create_Date>        <f4_Assigned_To xsi:nil="true"/>        <f5_Last_Modified_By>Remedy Application Service</f5_Last_Modified_By>       
+   data           :  <f6_Modified_Date>2026-10-01T12:08:25+00:00</f6_Modified_Date>        <f7_Status>New</f7_Status>        <f8_Short_Description>fileName</f8_Short_Descr
+   data           : iption>        <f15_Status_History xsi:nil="true"/>        <f16_Notifier_Listening>Not Listening</f16_Notifier_Listening>        <f112_Assignee_Group>
+   data           : 'ARSERVER';</f112_Assignee_Group>        <f17__SettingGUID>AGGEA5QPJF9WVAT8TVFQT8TVFQPVPV</f17__SettingGUID>        <f37__Record_ID>AGGEA5QPJF9WVAT8TVF
+   data           : QT8TVFQPVPV</f37__Record_ID>        <f3200_Component_Name>Logger Configuration</f3200_Component_Name>        <f3204_Setting_Name>fileName</f3204_Settin
+   data           : g_Name>        <f3205_Setting_Value>com.cmak.integrations.znksa-csm-sms.log</f3205_Setting_Value>        <f3206_Secure_Data xsi:nil="true"/>        <f
+   data           : 3257_ParentComponentName xsi:nil="true"/>        <f3267_OwnerKeyValue1>AGGEA5QPJF9WVAT8TVFQT8TVFQPVPV</f3267_OwnerKeyValue1>        <f3268_OwnerKeyValu
+   data           : e2 xsi:nil="true"/>        <f326__OwnerKeyValue3 xsi:nil="true"/>        <f3270_FileName xsi:nil="true"/>        <f3272_FileType xsi:nil="true"/>    
+   data           :     <f60005_Shared_Settings_Write>'ARSERVER';</f60005_Shared_Settings_Write>        <f60006_Shared_Settings_Read>'ARSERVER';</f60006_Shared_Settings_Rea
+   data           : d>        <f60_8__ParentAssigneeGroup/>        <f61001_Application>com.cmak.integrations.znksa-csm-sms</f61001_Application>    </entryItem>    <entry
+   data           : Item>        <f1_Request_ID>000000000003307</f1_Request_ID>        <f2_Submitter>ARSERVER</f2_Submitter>        <f3_Create_Date>2026-09-20T09:12:30+00
+   data           : :00</f3_Create_Date>        <f4_Assigned_To xsi:nil="true"/>        <f5_Last_Modified_By>Remedy Application Service</f5_Last_Modified_By>        <f6_M
+   data           : odified_Date>2026-10-01T12:08:25+00:00</f6_Modified_Date>        <f7_Status>New</f7_Status>        <f8_Short_Description>level</f8_Short_Description> 
+   data           :        <f15_Status_History xsi:nil="true"/>        <f16_Notifier_Listening>Not Listening</f16_Notifier_Listening>        <f112_Assignee_Group>'ARSERVER
+   data           : ';</f112_Assignee_Group>        <f17__SettingGUID>AGGEA5QPJF9WVAT8TVFQT8TVFQPVQH</f17__SettingGUID>        <f37__Record_ID>AGGEA5QPJF9WVAT8TVFQT8TVFQPV
+   data           : QH</f37__Record_ID>        <f3200_Component_Name>Logger Configuration</f3200_Component_Name>        <f3204_Setting_Name>level</f3204_Setting_Name>    
+   data           :     <f3205_Setting_Value>5</f3205_Setting_Value>        <f3206_Secure_Data xsi:nil="true"/>        <f3257_ParentComponentName xsi:nil="true"/>        
+   data           : <f3267_OwnerKeyValue1>AGGEA5QPJF9WVAT8TVFQT8TVFQPVPV</f3267_OwnerKeyValue1>        <f3268_OwnerKeyValue2 xsi:nil="true"/>        <f326__OwnerKeyValue3 
+   data           : xsi:nil="true"/>        <f3270_FileName xsi:nil="true"/>        <f3272_FileType xsi:nil="true"/>        <f60005_Shared_Settings_Write>'ARSERVER';</f60
+   data           : 005_Shared_Settings_Write>        <f60006_Shared_Settings_Read>'ARSERVER';</f60006_Shared_Settings_Read>        <f60_8__ParentAssigneeGroup/>        <
+   data           : f61001_Application>com.cmak.integrations.znksa-csm-sms</f61001_Application>    </entryItem></entryList>
 end
 

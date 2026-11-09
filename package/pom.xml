@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-    <artifactId>znksa-csm-sms-all</artifactId>
-    <groupId>com.cmak.integrations</groupId>
-    <version>26.2.00-SNAPSHOT</version>
-  </parent>
+        <artifactId>znksa-csm-sms-all</artifactId>
+        <groupId>com.cmak.integrations</groupId>
+        <version>26.3.01-SNAPSHOT</version>
+    </parent>
 
     <groupId>com.cmak.integrations</groupId>
     <artifactId>znksa-csm-sms-package</artifactId>
-    <version>26.2.00-SNAPSHOT</version>
+    <version>26.3.01-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <dependencies>

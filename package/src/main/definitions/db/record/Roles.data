@@ -24,10 +24,9 @@ begin schema data
    data           : <entryItem>        <f1_Request_ID>000000000021231</f1_Request_ID>        <f2_Submitter>ARSERVER</f2_Submitter>        <f3_Create_Date>2026-07-27T09:46
    data           : :36+00:00</f3_Create_Date>        <f4_Assigned_To xsi:nil="true"/>        <f5_Last_Modified_By>ARSERVER</f5_Last_Modified_By>        <f6_Modified_Date
    data           : >2026-07-27T09:46:36+00:00</f6_Modified_Date>        <f7_Status>New</f7_Status>        <f8_Short_Description> </f8_Short_Description>        <f15_Stat
-   data           : us_History>2026-07-27T09:46:38+00:00ARSERVER</f15_Status_History>        <f16_Notifier_Listening xsi:nil="true"/>        <f17__Record_Instance_ID
-   data           : >AGGEA5QPJF9WVAT8TVFQT8TVFQPVNK</f17__Record_Instance_ID>        <f37__Record_ID>AGGEA5QPJF9WVAT8TVFQT8TVFQPVNK</f37__Record_ID>        <f1700_Applicat
-   data           : ion_Name>com.cmak.integrations.znksa-csm-sms</f1700_Application_Name>        <f1701_Role_Name>Event Report Access Role</f1701_Role_Name>        <f1702_
-   data           : Role_ID>-211</f1702_Role_ID>        <f2001_Test xsi:nil="true"/>        <f2002_Production xsi:nil="true"/>        <f301600300_Datatag xsi:nil="true"/>
-   data           :     </entryItem></entryList>
+   data           : us_History/>        <f16_Notifier_Listening xsi:nil="true"/>        <f17__Record_Instance_ID>AGGEA5QPJF9WVAT8TVFQT8TVFQPVNK</f17__Record_Instance_ID> 
+   data           :        <f37__Record_ID>AGGEA5QPJF9WVAT8TVFQT8TVFQPVNK</f37__Record_ID>        <f1700_Application_Name>com.cmak.integrations.znksa-csm-sms</f1700_Applica
+   data           : tion_Name>        <f1701_Role_Name>Event Report Access Role</f1701_Role_Name>        <f1702_Role_ID>-211</f1702_Role_ID>        <f2001_Test xsi:nil="t
+   data           : rue"/>        <f2002_Production xsi:nil="true"/>        <f301600300_Datatag xsi:nil="true"/>    </entryItem></entryList>
 end
 
