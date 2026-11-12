@@ -16,8 +16,13 @@ import com.cmak.integrations.bundle.dawiyat.resource.DawiyatResource;
 import com.cmak.integrations.bundle.dawiyat.service.DawiyatService;
 import com.cmak.integrations.bundle.lbs.config.LbsConfigService;
 import com.cmak.integrations.bundle.lbs.service.LbsService;
+import com.cmak.integrations.bundle.salam.assigned.AssignedService;
+import com.cmak.integrations.bundle.salam.resolve.ResolveService;
+import com.cmak.integrations.bundle.salam.statusupdate.StatusUpdateService;
+import com.cmak.integrations.bundle.salam.workinfo.WorkInfoService;
 import com.cmak.integrations.bundle.sms.config.SmsConfigService;
 import com.cmak.integrations.bundle.sms.service.SmsService;
+
 
 /**
  * Rx Web Activator class.
@@ -103,5 +108,9 @@ public class MyApplication extends RxBundle {
 
         ServiceLocator.getLogger().info(
                 "[BOOT] ==========================================================");
+        registerService(new ResolveService());
+        registerService(new WorkInfoService());
+        registerService(new StatusUpdateService());
+        registerService(new AssignedService());
     }
 }

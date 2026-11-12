@@ -3,6 +3,9 @@ package com.cmak.integrations.bundle.salam.workinfo;
 
 public class WorkInfoTicketData {
 
+    private String attachmentName;    // staging attachment field 536870920
+    private String attachmentBase64;  // file content, base64
+    private String zainTicketNo;
     private String secureWorkLog;       // field 908302202
     private String viewAccess;          // field 908302203
     private String communicationSource; // field 922092801
@@ -36,6 +39,15 @@ public class WorkInfoTicketData {
     public String getDescription() { return description; }
     public void setDescription(String v) { this.description = v; }
 
+
+    public String getZainTicketNo() { return zainTicketNo; }
+    public void setZainTicketNo(String v) { this.zainTicketNo = v; }
+
+    public String getAttachmentName() { return attachmentName; }
+    public void setAttachmentName(String v) { this.attachmentName = v; }
+
+    public String getAttachmentBase64() { return attachmentBase64; }
+    public void setAttachmentBase64(String v) { this.attachmentBase64 = v; }
 
     public static String orEmpty(String v) {
         return v == null ? "" : v;

@@ -15,6 +15,9 @@ class StatusUpdateRemedyGateway {
 
     private static final int FIELD_SALAM_TT_NO = 908302201;
     private static final int FIELD_STATUS = 922083102;
+    private static final int FIELD_ZAIN_TT_NO = 536870980;
+    private static final int FIELD_WORKLOG = 922083007;
+
     private static final int FIELD_STATUS_REASON = 922083103;
     private static final int FIELD_STATUS_NOTE = 922101003;
     private static final int FIELD_ASSIGNED_GROUP = 922101001;
@@ -46,12 +49,14 @@ class StatusUpdateRemedyGateway {
 
             StatusUpdateTicketData data = new StatusUpdateTicketData();
             data.setSalamTicketNo(str(record, FIELD_SALAM_TT_NO));
+            data.setZainTicketNo(str(record, FIELD_ZAIN_TT_NO));
+            data.setWorkLog(str(record, FIELD_WORKLOG));
             data.setStatus(str(record, FIELD_STATUS));
             data.setStatusReason(str(record, FIELD_STATUS_REASON));
             data.setStatusNote(str(record, FIELD_STATUS_NOTE));
             data.setAssignedGroup(str(record, FIELD_ASSIGNED_GROUP));
             data.setAssignee(str(record, FIELD_ASSIGNEE));
-            data.setLastResolvedDate(str(record, FIELD_LAST_RESOLVED_DATE));
+            data.setLastResolvedDate(str(record, FIELD_LAST_RESOLVED_DATE)); // not sent to ServiceNow
             return data;
 
         } catch (RuntimeException e) {

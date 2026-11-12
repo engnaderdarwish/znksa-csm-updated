@@ -4,23 +4,12 @@ import com.bmc.arsys.rx.services.action.domain.Action;
 import com.bmc.arsys.rx.services.action.domain.ActionParameter;
 import com.bmc.arsys.rx.services.common.Service;
 import com.bmc.arsys.rx.services.common.domain.Scope;
-
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
+import com.cmak.integrations.bundle.salam.common.SalamSnFields;
+import com.cmak.integrations.bundle.salam.common.ServiceNowSoapClient;
 import jakarta.validation.constraints.NotBlank;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
-import java.io.ByteArrayInputStream;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
-import java.time.Duration;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import static com.cmak.integrations.bundle.salam.workinfo.WorkInfoTicketData.orEmpty;
 
@@ -37,89 +26,31 @@ public class WorkInfoService implements Service {
         try {
             applyTrustStore();
             WorkInfoTicketData data = remedyGateway.fetchByGuid(salamGuid, config);
-            String envelope = buildEnvelope(data);
-            return sendToSalam(envelope, timeoutMs);
+            Map<String, String> fields = buildFields(data);
+            Map<String, String> result = ServiceNowSoapClient.insert(
+                    config.getWorkInfoApiUrl(), config.getSalamUser(), config.getSalamPassword(), fields, timeoutMs);
+            return ServiceNowSoapClient.summarize(result);
         } catch (Exception e) {
             throw new RuntimeException("SALAM WorkInfo creation failed for GUID " + salamGuid, e);
         }
     }
 
     private void applyTrustStore() {
-        System.setProperty("javax.net.ssl.trustStore", config.getSalamCertPath());
+        String cert = config.getSalamCertPath();
+        if (cert == null || cert.isBlank()) return; // ServiceNow cert is public-CA signed: default JVM trust is enough
+        System.setProperty("javax.net.ssl.trustStore", cert);
         System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
     }
 
-    private String buildEnvelope(WorkInfoTicketData data) {
-        return "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" " +
-                "xmlns:urn=\"urn:_ITC_HPD_AddLog_Zain\">\n" +
-                "  <soapenv:Header>\n" +
-                "    <urn:AuthenticationInfo>\n" +
-                "      <urn:userName>" + escapeXml(config.getSalamUser()) + "</urn:userName>\n" +
-                "      <urn:password>" + escapeXml(config.getSalamPassword()) + "</urn:password>\n" +
-                "    </urn:AuthenticationInfo>\n" +
-                "  </soapenv:Header>\n" +
-                "  <soapenv:Body>\n" +
-                "    <urn:Create>\n" +
-                "      <urn:SecureWorkLog>" + escapeXml(orEmpty(data.getSecureWorkLog())) + "</urn:SecureWorkLog>\n" +
-                "      <urn:ViewAccess>" + escapeXml(orEmpty(data.getViewAccess())) + "</urn:ViewAccess>\n" +
-                "      <urn:CommunicationSource>" + escapeXml(orEmpty(data.getCommunicationSource())) + "</urn:CommunicationSource>\n" +
-                "      <urn:WorkLogType>" + escapeXml(orEmpty(data.getWorkLogType())) + "</urn:WorkLogType>\n" +
-                "      <urn:IncidentNumber>" + escapeXml(orEmpty(data.getIncidentNumber())) + "</urn:IncidentNumber>\n" +
-                "      <urn:WorkLogSubmitter>" + escapeXml(orEmpty(data.getWorkLogSubmitter())) + "</urn:WorkLogSubmitter>\n" +
-                "      <urn:DetailedDescription>" + escapeXml(orEmpty(data.getDetailedDescription())) + "</urn:DetailedDescription>\n" +
-                "      <urn:Description>" + escapeXml(orEmpty(data.getDescription())) + "</urn:Description>\n" +
-                "    </urn:Create>\n" +
-                "  </soapenv:Body>\n" +
-                "</soapenv:Envelope>";
-    }
-
-    private String sendToSalam(String envelope, int timeoutMs) throws Exception {
-        HttpClient client = HttpClient.newBuilder()
-                .connectTimeout(Duration.ofMillis(timeoutMs))
-                .build();
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(config.getWorkInfoApiUrl()))
-                .timeout(Duration.ofMillis(timeoutMs))
-                .header("Accept", "application/soap+xml")
-                .header("SOAPAction", "_ITC_HPD_AddLog_Zain/Create")
-                .header("Content-Type", "application/xml")
-                .POST(HttpRequest.BodyPublishers.ofString(envelope, StandardCharsets.UTF_8))
-                .build();
-
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        return parseResult(response.body());
-    }
-
-    private String parseResult(String rawResponse) throws Exception {
-        if (rawResponse == null || rawResponse.isBlank()) {
-            throw new IllegalStateException("SALAM returned an empty response");
+    private Map<String, String> buildFields(WorkInfoTicketData data) {
+        Map<String, String> f = new LinkedHashMap<>();
+        f.put(SalamSnFields.KEY_TICKET, orEmpty(data.getZainTicketNo()));
+        f.put(SalamSnFields.INTEGRATION_SRC, SalamSnFields.SOURCE_VALUE);
+        f.put(SalamSnFields.WORK_NOTES, orEmpty(data.getDetailedDescription()));
+        if (data.getAttachmentBase64() != null && !data.getAttachmentBase64().isEmpty()) {
+            f.put(SalamSnFields.CONTENT_BASE64, data.getAttachmentBase64());
+            f.put(SalamSnFields.FILE_NAME, orEmpty(data.getAttachmentName()));
         }
-
-        int faultStart = rawResponse.indexOf("<faultstring>");
-        if (faultStart != -1) {
-            int contentStart = faultStart + "<faultstring>".length();
-            int end = rawResponse.indexOf("</faultstring>", contentStart);
-            String faultString = end != -1 ? rawResponse.substring(contentStart, end) : "unknown fault";
-            throw new IllegalStateException("SALAM fault: " + faultString);
-        }
-
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(new ByteArrayInputStream(rawResponse.getBytes(StandardCharsets.UTF_8)));
-
-        NodeList list = doc.getElementsByTagName("urn:CreateResponse");
-        if (list.getLength() == 0) {
-            throw new IllegalStateException("Unexpected SALAM response shape");
-        }
-        Element e = (Element) list.item(0);
-        NodeList resultNodes = e.getElementsByTagName("Work_Log_ID");
-        return resultNodes.getLength() > 0 ? resultNodes.item(0).getTextContent() : null;
-    }
-
-    private static String escapeXml(String value) {
-        if (value == null) return "";
-        return value.replace("&", "&amp;").replace("<", "&lt;")
-                .replace(">", "&gt;").replace("\"", "&quot;").replace("'", "&apos;");
+        return f;
     }
 }

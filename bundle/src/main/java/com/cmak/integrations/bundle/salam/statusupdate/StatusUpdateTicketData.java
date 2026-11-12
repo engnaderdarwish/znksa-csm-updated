@@ -3,6 +3,8 @@ package com.cmak.integrations.bundle.salam.statusupdate;
 
 public class StatusUpdateTicketData {
 
+    private String zainTicketNo;
+    private String workLog;
     private String salamTicketNo;   // field 908302201
     private String status;          // field 922083102
     private String statusReason;    // field 922083103 (fetched, but not sent - matches legacy)
@@ -31,6 +33,12 @@ public class StatusUpdateTicketData {
 
     public String getLastResolvedDate() { return lastResolvedDate; }
     public void setLastResolvedDate(String v) { this.lastResolvedDate = v; }
+
+    public String getZainTicketNo() { return zainTicketNo; }
+    public void setZainTicketNo(String v) { this.zainTicketNo = v; }
+
+    public String getWorkLog() { return workLog; }
+    public void setWorkLog(String v) { this.workLog = v; }
 
     public static String orEmpty(String v) {
         return v == null ? "" : v;

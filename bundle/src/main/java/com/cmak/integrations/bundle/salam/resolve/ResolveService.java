@@ -4,23 +4,14 @@ import com.bmc.arsys.rx.services.action.domain.Action;
 import com.bmc.arsys.rx.services.action.domain.ActionParameter;
 import com.bmc.arsys.rx.services.common.Service;
 import com.bmc.arsys.rx.services.common.domain.Scope;
-
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
+import com.cmak.integrations.bundle.salam.common.SalamSnFields;
+import com.cmak.integrations.bundle.salam.common.ServiceNowSoapClient;
 import jakarta.validation.constraints.NotBlank;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
-import java.io.ByteArrayInputStream;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
-import java.time.Duration;
+
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import static com.cmak.integrations.bundle.salam.resolve.ResolveTicketData.orEmpty;
 
@@ -37,93 +28,32 @@ public class ResolveService implements Service {
         try {
             applyTrustStore();
             ResolveTicketData data = remedyGateway.fetchByGuid(salamGuid, config);
-            String envelope = buildEnvelope(data);
-            return sendToSalam(envelope, timeoutMs);
+            Map<String, String> fields = buildFields(data);
+            Map<String, String> result = ServiceNowSoapClient.insert(
+                    config.getStatusResolveApiUrl(), config.getSalamUser(), config.getSalamPassword(), fields, timeoutMs);
+            return ServiceNowSoapClient.summarize(result);
         } catch (Exception e) {
             throw new RuntimeException("SALAM Resolve update failed for GUID " + salamGuid, e);
         }
     }
 
     private void applyTrustStore() {
-        System.setProperty("javax.net.ssl.trustStore", config.getSalamCertPath());
+        String cert = config.getSalamCertPath();
+        if (cert == null || cert.isBlank()) return; // ServiceNow cert is public-CA signed: default JVM trust is enough
+        System.setProperty("javax.net.ssl.trustStore", cert);
         System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
     }
 
-    private String buildEnvelope(ResolveTicketData data) {
-        return "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" " +
-                "xmlns:urn=\"urn:_ITC_HPD_StatusUpdate_Resolved-Reassign_Zain\">\n" +
-                "  <soapenv:Header>\n" +
-                "    <urn:AuthenticationInfo>\n" +
-                "      <urn:userName>" + escapeXml(config.getSalamUser()) + "</urn:userName>\n" +
-                "      <urn:password>" + escapeXml(config.getSalamPassword()) + "</urn:password>\n" +
-                "    </urn:AuthenticationInfo>\n" +
-                "  </soapenv:Header>\n" +
-                "  <soapenv:Body>\n" +
-                "    <urn:UpdateStatus>\n" +
-                "      <urn:Salam_Ticket_No>" + escapeXml(orEmpty(data.getSalamTicketNo())) + "</urn:Salam_Ticket_No>\n" +
-                "      <urn:Zain_Ticket_No>" + escapeXml(orEmpty(data.getZainTicketNo())) + "</urn:Zain_Ticket_No>\n" +
-                "      <urn:Status>" + escapeXml(orEmpty(data.getStatus())) + "</urn:Status>\n" +
-                "      <urn:Status_Reason>" + escapeXml(orEmpty(data.getStatusReason())) + "</urn:Status_Reason>\n" +
-                "      <urn:Status_Note>" + escapeXml(orEmpty(data.getStatusNote())) + "</urn:Status_Note>\n" +
-                "      <urn:ResolutionNote>" + escapeXml(orEmpty(data.getResolutionNote())) + "</urn:ResolutionNote>\n" +
-                "      <urn:AssignedGroup>" + escapeXml(orEmpty(data.getAssignedGroup())) + "</urn:AssignedGroup>\n" +
-                "      <urn:Assignee>" + escapeXml(orEmpty(data.getAssignee())) + "</urn:Assignee>\n" +
-                "      <urn:ActualResolutionDate>" + escapeXml(orEmpty(data.getLastResolvedDate())) + "</urn:ActualResolutionDate>\n" +
-                "      <urn:SupportCompany>" + escapeXml(orEmpty(data.getSupportCompany())) + "</urn:SupportCompany>\n" +
-                "      <urn:SupportGroupID>" + escapeXml(orEmpty(data.getSupportGroupId())) + "</urn:SupportGroupID>\n" +
-                "      <urn:SupportOrganization>" + escapeXml(orEmpty(data.getSupportOrganization())) + "</urn:SupportOrganization>\n" +
-                "    </urn:UpdateStatus>\n" +
-                "  </soapenv:Body>\n" +
-                "</soapenv:Envelope>";
-    }
-
-    private String sendToSalam(String envelope, int timeoutMs) throws Exception {
-        HttpClient client = HttpClient.newBuilder()
-                .connectTimeout(Duration.ofMillis(timeoutMs))
-                .build();
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(config.getStatusResolveApiUrl()))
-                .timeout(Duration.ofMillis(timeoutMs))
-                .header("Accept", "application/soap+xml")
-                .header("SOAPAction", "_ITC_HPD_StatusUpdate_Resolved-Reassign_Zain/Update")
-                .header("Content-Type", "application/xml")
-                .POST(HttpRequest.BodyPublishers.ofString(envelope, StandardCharsets.UTF_8))
-                .build();
-
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        return parseResult(response.body());
-    }
-
-    private String parseResult(String rawResponse) throws Exception {
-        if (rawResponse == null || rawResponse.isBlank()) {
-            throw new IllegalStateException("SALAM returned an empty response");
-        }
-
-        int faultStart = rawResponse.indexOf("<faultstring>");
-        if (faultStart != -1) {
-            int contentStart = faultStart + "<faultstring>".length();
-            int end = rawResponse.indexOf("</faultstring>", contentStart);
-            String faultString = end != -1 ? rawResponse.substring(contentStart, end) : "unknown fault";
-            throw new IllegalStateException("SALAM fault: " + faultString);
-        }
-
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(new ByteArrayInputStream(rawResponse.getBytes(StandardCharsets.UTF_8)));
-
-        NodeList list = doc.getElementsByTagName("urn:UpdateStatusResponse");
-        if (list.getLength() == 0) {
-            throw new IllegalStateException("Unexpected SALAM response shape");
-        }
-        Element e = (Element) list.item(0);
-        NodeList resultNodes = e.getElementsByTagName("ns0:Result");
-        return resultNodes.getLength() > 0 ? resultNodes.item(0).getTextContent() : null;
-    }
-
-    private static String escapeXml(String value) {
-        if (value == null) return "";
-        return value.replace("&", "&amp;").replace("<", "&lt;")
-                .replace(">", "&gt;").replace("\"", "&quot;").replace("'", "&apos;");
+    private Map<String, String> buildFields(ResolveTicketData data) {
+        Map<String, String> f = new LinkedHashMap<>();
+        f.put(SalamSnFields.KEY_TICKET, orEmpty(data.getZainTicketNo()));
+        f.put(SalamSnFields.STATE, SalamSnFields.STATE_RESOLVED);
+        f.put(SalamSnFields.ASSIGNED_TO, SalamSnFields.CC_ASSIGNEE);
+        f.put(SalamSnFields.ASSIGNMENT_GROUP, SalamSnFields.CC_GROUP);
+        f.put(SalamSnFields.INTEGRATION_SRC, SalamSnFields.SOURCE_VALUE);
+        f.put(SalamSnFields.RESOLUTION_CODE, SalamSnFields.RESOLUTION_CODE_VALUE);
+        f.put(SalamSnFields.RESOLUTION_NOTES, orEmpty(data.getResolutionNote()));
+        f.put(SalamSnFields.RESOLUTION_DATE, orEmpty(data.getLastResolvedDate()));
+        return f;
     }
 }

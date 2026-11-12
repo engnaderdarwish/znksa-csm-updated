@@ -1,6 +1,7 @@
 package com.cmak.integrations.bundle.salam.resolve;
 
 import com.bmc.arsys.api.ARServerUser;
+import com.cmak.integrations.bundle.salam.common.SalamDates;
 import com.bmc.arsys.api.Entry;
 import com.bmc.arsys.api.EntryListInfo;
 import com.bmc.arsys.api.QualifierInfo;
@@ -57,7 +58,7 @@ class ResolveRemedyGateway {
             data.setResolutionNote(str(record, FIELD_RESOLUTION_NOTE));
             data.setAssignedGroup(str(record, FIELD_ASSIGNED_GROUP));
             data.setAssignee(str(record, FIELD_ASSIGNEE));
-            data.setLastResolvedDate(str(record, FIELD_LAST_RESOLVED_DATE));
+            data.setLastResolvedDate(SalamDates.toServiceNow(record.get(FIELD_LAST_RESOLVED_DATE)));
             data.setSupportCompany(str(record, FIELD_SUPPORT_COMPANY));
             data.setSupportOrganization(str(record, FIELD_SUPPORT_ORG));
             data.setSupportGroupId(str(record, FIELD_SUPPORT_GROUP_ID));
